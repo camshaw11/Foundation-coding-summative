@@ -1,0 +1,23 @@
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  // grid-template-rows: 800px;
+  width: 100vw;
+  height: 100vh;
+  // grid-gap: 1em;
+}
+
+body {
+/*   margin-left: 40px; */
+/*   margin-right: 40px; */
+  max-width: 120em;
+  // padding: 1em 0;
+}
+
+main,
+aside {
+  background: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

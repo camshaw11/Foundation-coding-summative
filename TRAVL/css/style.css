@@ -1,0 +1,17 @@
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 100vw;
+  height: 100vh; }
+
+body {
+  /*   margin-left: 40px; */
+  /*   margin-right: 40px; */
+  max-width: 120em; }
+
+main,
+aside {
+  background: green;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
