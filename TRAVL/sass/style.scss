@@ -1,23 +1,69 @@
 body {
-  display: grid;
-  grid-template-columns: 100%;
-  // grid-template-rows: 800px;
-  width: 100vw;
+  // display: grid;
+  // grid-template-columns: 100%;
+  // // grid-template-rows: 800px;
+  // width: 100vw;
+  // height: 95vh;
+  // // grid-gap: 1em;
+  // max-width: 120em;
+  margin-top: 0px;
+  background-color: #2f4454;
+}
+
+#map {
+  width: 100%;
   height: 100vh;
-  // grid-gap: 1em;
+}
+.panel{
+    width: 600px;
+    height: 100vh;
+    background: #DA7B93;
+    // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    // transition: width 0.6s;
+    -webkit-animation: mymove 1.5s ease-in-out forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s ease-in-out forwards;
+    position: absolute;
+    // left: -20px;
 }
 
-body {
-/*   margin-left: 40px; */
-/*   margin-right: 40px; */
-  max-width: 120em;
-  // padding: 1em 0;
+// .panel:hover {
+//     width: 600px;
+// }
+.wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+}
+.panel-two{
+    width: 570px;
+    height: 100vh;
+    background: #1C3334;
+    // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    // transition: width 0.8s;
+    -webkit-animation: mymove 2s ease-in-out forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 2s ease-in-out forwards;
+    position: absolute;
+    // left: -40px;
 }
 
-main,
-aside {
-  background: green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .panel-two:hover {
+//     width: 500px;
+// }
+
+.panel-three{
+    width: 540px;
+    height: 100vh;
+    background: #376E6F;
+    // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    // transition: width 0.8s;
+    -webkit-animation: mymove 2.5s ease-in-out  forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 2.5s ease-in-out forwards;
+    position: absolute;
+    // left: -40px;
+}
+
+@keyframes mymove {
+    0%   {left: -600px;}
+    100% {left: 0px;}
 }
