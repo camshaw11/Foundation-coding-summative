@@ -1,18 +1,19 @@
 body {
   margin-top: 0px;
+  margin-bottom: 0px;
   background-color: #2f4454; }
 
 #map {
   width: 100%;
   height: 100vh; }
 
-.panel {
+.panel-one {
   width: 600px;
   height: 100vh;
   background: #DA7B93;
-  -webkit-animation: mymove 1.5s ease-in-out forwards;
+  -webkit-animation: mymove 1s ease-in-out forwards;
   /* Safari 4.0 - 8.0 */
-  animation: mymove 1.5s ease-in-out forwards;
+  animation: mymove 1s ease-in-out forwards;
   position: absolute; }
 
 .wrapper {
@@ -25,23 +26,61 @@ body {
   width: 570px;
   height: 100vh;
   background: #1C3334;
-  -webkit-animation: mymove 2s ease-in-out forwards;
+  -webkit-animation: mymove 1.5s ease-in-out forwards;
   /* Safari 4.0 - 8.0 */
-  animation: mymove 2s ease-in-out forwards;
+  animation: mymove 1.5s ease-in-out forwards;
   position: absolute; }
 
 .panel-three {
   width: 540px;
   height: 100vh;
   background: #376E6F;
-  -webkit-animation: mymove 2.5s ease-in-out  forwards;
+  -webkit-animation: mymove 2s ease-in-out  forwards;
   /* Safari 4.0 - 8.0 */
-  animation: mymove 2.5s ease-in-out forwards;
+  animation: mymove 2s ease-in-out forwards;
   position: absolute; }
 
 @keyframes mymove {
   0% {
-    left: -600px; }
+    left: -550px; }
 
   100% {
     left: 0px; } }
+.panel-back {
+  -webkit-animation: mymoveBack 1s ease-in-out forwards;
+  /* Safari 4.0 - 8.0 */
+  animation: mymoveBack 1s ease-in-out forwards;
+  position: absolute; }
+
+@keyframes mymoveBack {
+  0% {
+    left: 0px; }
+
+  100% {
+    left: -500px; } }
+#particles-js {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none; }
+
+header {
+  position: absolute;
+  z-index: 10000;
+  margin-left: 70px;
+  margin-top: 40px; }
+
+h1 {
+  z-index: 10000;
+  color: #DA7B93;
+  font-size: 80px;
+  letter-spacing: 28px;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+  border: 2px solid #2E151B;
+  font-family: 'Pathway Gothic One', sans-serif; }
