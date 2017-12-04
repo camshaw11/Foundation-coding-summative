@@ -100,7 +100,7 @@ body {
 header {
   position: absolute;
   z-index: 10000;
-  margin-left: 70px;
+  margin-left: 85px;
   margin-top: 40px;
 }
 h1 {
@@ -117,4 +117,71 @@ h1 {
   text-align: center;
   border: 2px solid #2E151B;
   font-family: 'Pathway Gothic One', sans-serif;
+}
+
+h2 {
+  font-size: 18px;
+  color: #DA7B93;
+  font-family: 'Oxygen', sans-serif;
+  letter-spacing: 30px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 5px;
+
+}
+
+form {
+  margin-top: 200px;
+  text-align: left;
+}
+
+fieldset {
+  border: none;
+  background-color: #2E151B;
+  margin-left: 93px;
+  margin-right: 95px;
+}
+
+#people-days {
+  margin-top: 5px;
+}
+input {
+  font-size: 24px;
+  background-color: #376E6F;
+  border: none;
+  padding: 4px;
+}
+
+input:focus {
+    outline: none;
+    border:1px solid red;
+    box-shadow: 0 0 10px #DA7B93;
+}
+
+.set-width {
+  width: 321px;
+}
+
+.set-width-people {
+  width: 50px;
+}
+
+#input-space {
+  margin-bottom: 5px;
+}
+
+.button-primary {
+  background-color: #376E6F;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+}
+
+#myNumber {
+  display: inline;
 }
