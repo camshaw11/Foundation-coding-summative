@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
-	<title>TRAVL</title>
+	<title>TRIVUL</title>
 
     <!-- stylesheets -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,6 +13,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Dosis|Oxygen" rel="stylesheet">
 	<!-- JQUERY -->
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<!-- parsley -->
+	<script src="js/parsley.min.js"></script>
 	<!-- mapbox -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
@@ -26,7 +28,7 @@
 		<div class="panel panel-one"></div>
 		<div class="panel panel-two"></div>
 		<div class="panel panel-three">
-			<form>
+			<form data-parsley-validate>
 				<fieldset>
 					<h2>FROM</h2>
 					<input type="text" class="set-width" name="from" value="">
@@ -36,17 +38,35 @@
 					<br>
 					<!-- <input type="submit" value="Submit"> -->
 				</fieldset>
+
 				<fieldset id="people-days">
 					<h2>PEOPLE</h2>
-						<button id="subtract" class="button-primary">-</button>
-							<input type="text" id="myNumber" class="set-width-people" name="people" value="">
-						<button id="add" class="button-primary">+</button>
-						<br>
+						<button type="button" id="subtract" class="button-primary"><h3>-</h3></button>
+
+							<input type="text" id="my-number" class="set-width-people" name="people" value="0">
+						<button type="button" id="add" class="button-primary"><h3>+</h3></button>
 					<h2>DAYS</h2>
-						<input type="text" id="input-space" class="set-width" name="days" value="">
-					<br>
-					<!-- <input type="submit" value="Submit"> -->
+						<button type="button" id="subtract" class="button-primary"><h3>-</h3></button>
+							<input type="text" id="my-number-days" class="set-width-people" name="days" value="0">
+						<button type="button" id="add" class="button-primary"><h3>+</h3></button>
 				</fieldset>
+
+				<!-- <fieldset id="submit-data"> -->
+					<input type="submit" id="submit-arrow" value=">">
+				<!-- </fieldset> -->
+
+				<fieldset id="car-group">
+					<button type="button" class="car"></button>
+					<button type="button" class="car"></button>
+					<button type="button" class="car"></button>
+					<button type="button" class="car"></button>
+				</fieldset>
+
+				<div id="calculations">
+					<h2 id="final-cost">COSTS</h2>
+					<h2 id="fuel-cost">FUEL:</h2>
+					<h2 id="over-cost">OVER:</h2>
+				</div>
 			</form>
 		</div>
 	</div>

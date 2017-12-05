@@ -144,8 +144,12 @@ fieldset {
 
 #people-days {
   margin-top: 5px;
+  margin-right: 200px;
+  padding-right: 0px;
 }
+
 input {
+  color: white;
   font-size: 24px;
   background-color: #376E6F;
   border: none;
@@ -163,25 +167,112 @@ input:focus {
 }
 
 .set-width-people {
-  width: 50px;
+  width: 40px;
+  padding-left: 12px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #input-space {
   margin-bottom: 5px;
 }
 
+h3 {
+  color: #DA7B93;
+  margin: 0 auto;
+}
+
 .button-primary {
-  background-color: #376E6F;
+    float: left;
+    background-color: #376E6F;
     border: none;
-    color: white;
-    padding: 10px 20px;
+    padding: 7px 14px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin: 0px 0px;
-    cursor: pointer;
+    border-radius: 0px;
+    margin-right: 30px;
 }
 
-#myNumber {
-  display: inline;
+// #submit-data {
+//   // float: right;
+//   position: absolute;
+//   width: 55px;
+//   top: 372px;
+//   text-align: center;
+//   right: 94px;
+//   margin: 0 auto;
+// }
+
+#submit-arrow {
+  color: #DA7B93;
+  font-size: 60px;
+  position: absolute;
+  width: 92px;
+  height: 161px;
+  top: 372px;
+  text-align: center;
+  border-radius: 0px;
+  right: 94px;
+  margin: 0 auto;
+  background-color: #2E151B;
 }
+
+#car-group {
+  margin-top: 5px;
+  background-color: #376E6F;
+  padding: 0px;
+  margin-right: 80px;
+}
+
+.car {
+    border: none;
+    padding: 50px 87px;
+    margin-bottom: 5px;
+    border-radius: 0px;
+    background-color: #2E151B;
+}
+
+#calculations {
+  // width: 400px;
+  margin-top: 3px;
+  height: 100px;
+  background-color: #DA7B93;
+  margin-left: 93px;
+  margin-right: 95px;
+}
+
+#final-cost {
+  text-align: center;
+  padding-top: 5px;
+  margin-left: 25px;
+  font-weight: bold;
+  color: #1C3334;
+}
+
+#fuel-cost {
+  color: #DA7B93;
+  background-color: #1C3334;
+  padding-top: 5px;
+  padding-left: 22px;
+  margin-bottom: 5px;
+  // margin-left: 22px;
+  letter-spacing: 20px;
+}
+
+#over-cost {
+  color: #DA7B93;
+  background-color: #1C3334;
+  padding-top: 5px;
+  padding-left: 20px;
+  // margin-left: 20px;
+  letter-spacing: 20px;
+}
+
+button:focus {
+    outline: none;
+    border:1px solid #DA7B93;
+    box-shadow: 0 0 10px #DA7B93;
+}
+
