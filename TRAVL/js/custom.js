@@ -47,7 +47,6 @@ var init = function () {
 		// panelMove ();
 
 	
-	
 
 
 
