@@ -85,7 +85,7 @@ body {
 
 @keyframes mymoveBack {
     0%   {left: 0px;}
-    100% {left: -500px;}
+    100% {left: -510px;}
 }
 
 #particles-js {
@@ -174,8 +174,9 @@ input:focus {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#input-space {
+#input-space-to {
   margin-bottom: 5px;
+  width: 321px;
 }
 
 h3 {

@@ -57,7 +57,7 @@ body {
     left: 0px; }
 
   100% {
-    left: -500px; } }
+    left: -510px; } }
 #particles-js {
   position: absolute;
   top: 0px;
@@ -134,8 +134,9 @@ input:focus {
   box-sizing: border-box;
   /* Opera/IE 8+ */ }
 
-#input-space {
-  margin-bottom: 5px; }
+#input-space-to {
+  margin-bottom: 5px;
+  width: 321px; }
 
 h3 {
   color: #DA7B93;

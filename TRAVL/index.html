@@ -7,10 +7,13 @@
 	<title>TRIVUL</title>
 
     <!-- stylesheets -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Dosis|Oxygen" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300">
+	<!-- normalize -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 	<!-- JQUERY -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- parsley -->
@@ -18,6 +21,9 @@
 	<!-- mapbox -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
+	<!-- Tipr -->
+	<link rel="stylesheet" href="tipr/tipr.css">
+	<script src="tipr/tipr.min.js"></script>
 </head>
 <body>
 	<header>
@@ -28,13 +34,14 @@
 		<div class="panel panel-one"></div>
 		<div class="panel panel-two"></div>
 		<div class="panel panel-three">
+			<div id="particles-js"></div>
 			<form data-parsley-validate>
 				<fieldset>
 					<h2>FROM</h2>
-					<input type="text" class="set-width" name="from" value="">
+					<input type="text" id="input-space-from" class="tip" data-tip="Where are you leaving from?" name="from" value="">
 					<br>
 					<h2>TO</h2>
-					<input type="text" id="input-space" class="set-width" name="to" value="">
+					<input type="text" id="input-space-to" class="tip" data-mode="below" data-tip="What is your destination?" class="set-width" name="to" value="">
 					<br>
 					<!-- <input type="submit" value="Submit"> -->
 				</fieldset>
@@ -72,7 +79,7 @@
 	</div>
 
 <!-- particles.js container -->
-<!-- <div id="particles-js"></div> -->
+
 
 <script src="js/custom.js"></script>
 <!-- <script src="js/particles.js"></script> -->

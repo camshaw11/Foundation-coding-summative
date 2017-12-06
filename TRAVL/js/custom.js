@@ -1,7 +1,6 @@
 
 var init = function () {
 
-		// document.getElementById("add").addEventListener("click", incrementValue);
 	function myForm() {
 
 		// Mapbox controls 
@@ -9,11 +8,34 @@ var init = function () {
 		var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
-		center: [169.130632, -41.709066],
-		zoom: 5,
+		center: [174.763817,-41.295241],
+		zoom: 12,
 		minZoom: 5
 		});
 
+		// tipr plugin for tooltips
+		$(document).ready(function() {
+	     	$('.tip').tipr({
+	          	'speed': 400,
+          		'mode': 'above',
+          		'space': 7
+	     	});
+		});
+
+
+
+
+		// location stuff
+		var location 	= document.getElementById('input-space-from').value;
+		var destination = document.getElementById('input-space-to').value;
+		var myArray = [location, destination];
+		console.log(myArray);
+
+
+
+
+
+		// panel moving function
 		// function panelMove () {
 		//     $('.panel').click(function(){
 		//         // alert("The was clicked.");
@@ -21,55 +43,17 @@ var init = function () {
 		//             $(this).toggleClass('panel-back panel');
 		//           // $(this).removeClass('panel-back').addClass('panel-three');
 		//     });
-		// };
+		// }
 		// panelMove ();
 
-		// document.getElementById("subtract").addEventListener("click", down);
+	
+	
 
-		
 
-		// var btn = document.getElementsByClassName('button-primary');
-		// btn[0].addEventListener('click', up('10'), false);
 
-		// function up(max) {
-		//     document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
-		//     if (document.getElementById("myNumber").value >= parseInt(max)) {
-		//         document.getElementById("myNumber").value = max;
-		//     }
-		// }
 
-		// up();
-		// function down(min) {
-		//     document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) - 1;
-		//     if (document.getElementById("myNumber").value <= parseInt(min)) {
-		//         document.getElementById("myNumber").value = min;
-		//     }
-		// }
-		// down();
-		// var btn = document.getElementsByClassName('button-primary');
-		// btn[0].addEventListener('click', addRemoveNumber, false);
+	} // myForm function ends
 
-		function addRemoveNumber () {
-
-			function incrementValue() {		
-				var value = parseInt(document.getElementById('my-number').value, 10);
-				value = isNaN(value) ? 0 : value;
-				value++;
-				document.getElementById('my-number').value = value;
-
-			}
-			incrementValue();
-
-			function incrementValueDays() {
-				var value = parseInt(document.getElementById('my-number-days').value, 10);
-				value = isNaN(value) ? 0 : value;
-				value++;
-				document.getElementById('my-number-days').value = value;
-			}
-			incrementValueDays();
-		};
-
-	}; // myForm function ends
-	myForm ();
+	myForm (); //invoke myForm
 
 }(); //main function ends

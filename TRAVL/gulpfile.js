@@ -19,7 +19,7 @@ gulp.task('serve', function(event) {
 
 //Styles Task
 gulp.task('styles', function() {
-    gulp.src('sass/**/custom.scss')
+    gulp.src('sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifyCss())
@@ -35,23 +35,11 @@ gulp.task('html', function() {
 
 //JS Lint Task
 gulp.task('lint', function(){
-    gulp.src('js/*.js')
+    gulp.src('js/custom.js')
     .pipe(jshint())
 	.pipe(jshint.reporter('default'))
 	.pipe(connect.reload());
 });
-
-//Rendering Jade Task 
-// gulp.task('templates', function() {
-//   var YOUR_LOCALS = {};
-//   gulp.src('views/*.jade')
-//     .pipe(jade({ 
-//         locals: YOUR_LOCALS,
-//         pretty: true
-//     }))
-//     .pipe(gulp.dest('./'))
-//     .pipe(connect.reload());
-// });
 
 //Watch Task
 gulp.task('watch', function(){
