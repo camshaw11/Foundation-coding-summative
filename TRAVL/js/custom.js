@@ -22,8 +22,32 @@ var init = function () {
 	     	});
 		});
 
+		map.addControl(new MapboxGeocoder({
+    	accessToken: mapboxgl.accessToken
+		}));
 
 
+		// flys to a random location on input
+		document.getElementById('input-space-from').addEventListener('click', function () {
+	    	// Fly to a random location by offsetting the point -74.50, 40
+	   		// by up to 5 degrees.
+	    	map.flyTo({
+	        	center: [
+	            -74.50 + (Math.random() - 0.5) * 10,
+	            40 + (Math.random() - 0.5) * 10]
+	    	});
+		});
+		
+		// flys to a random location on input
+		document.getElementById('input-space-to').addEventListener('click', function () {
+	    	// Fly to a random location by offsetting the point -74.50, 40
+	   		// by up to 5 degrees.
+	    	map.flyTo({
+	        	center: [
+	            -74.50 + (Math.random() - 0.5) * 10,
+	            40 + (Math.random() - 0.5) * 10]
+	    	});
+		});
 
 		// location stuff
 		var location 	= document.getElementById('input-space-from').value;

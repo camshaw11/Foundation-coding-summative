@@ -80,7 +80,7 @@ h1 {
   letter-spacing: 28px;
   padding-left: 20px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
   border: 2px solid #2E151B;
   font-family: 'Pathway Gothic One', sans-serif; }
@@ -212,3 +212,28 @@ button:focus {
   outline: none;
   border: 1px solid #DA7B93;
   box-shadow: 0 0 10px #DA7B93; }
+
+#motorbike {
+  padding: 15px;
+  width: 174px;
+  height: 130px; }
+
+#smart-car {
+  padding: 15px;
+  width: 174px;
+  height: 130px; }
+
+#large-car {
+  padding: 15px;
+  width: 174px;
+  height: 130px; }
+
+#motorhome {
+  padding: 15px;
+  width: 174px;
+  height: 130px; }
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  float: left; }
