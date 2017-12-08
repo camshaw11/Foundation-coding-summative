@@ -22,39 +22,136 @@ var init = function () {
 	     	});
 		});
 
-		map.addControl(new MapboxGeocoder({
-    	accessToken: mapboxgl.accessToken
-		}));
+		/////////// modal pop out ///////////
 
+		// Get the modal
+		var modal = document.getElementById('myModal');
 
-		// flys to a random location on input
-		document.getElementById('input-space-from').addEventListener('click', function () {
-	    	// Fly to a random location by offsetting the point -74.50, 40
-	   		// by up to 5 degrees.
-	    	map.flyTo({
-	        	center: [
-	            -74.50 + (Math.random() - 0.5) * 10,
-	            40 + (Math.random() - 0.5) * 10]
-	    	});
+		// Get the button that opens the modal
+		var btn 			= document.getElementById("motorbike");
+		var smartCarBtn 	= document.getElementById('smartCar');
+		var largeCarBtn 	= document.getElementById('largeCar');
+		var motorhomeBtn 	= document.getElementById('motorhome');
+		var h1Elem			= document.getElementsByClassName('head-modal');
+		var h2Elem			= document.getElementsByClassName('modalPrice');
+		var h2Elem2			= document.getElementsByClassName('modalPrice2');
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		var buttons = document.getElementsByClassName('car');
+			for (var i = 0, len = buttons.length; i < len; i++) {
+    			buttons[i].onclick = function (){
+        			modal.style.display = "block";
+			};
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		};
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		};
+
+		smartCarBtn.addEventListener('click', function() {
+			document.getElementById('photoTransport').src="img/smartcar.png";
+			h1Elem["0"].textContent = "SMARTCAR";
+			h2Elem["0"].textContent = "$129 PER DAY";
+			h2Elem2["0"].textContent ="8.5L/100KM";
 		});
+
+		largeCarBtn.addEventListener('click', function() {
+			document.getElementById('photoTransport').src="img/large-car.png";
+			h1Elem["0"].textContent = "CHRYSLER 200";
+			h2Elem["0"].textContent = "$144 PER DAY";
+			h2Elem2["0"].textContent ="9.7L/100KM";
+		});
+
+		motorhomeBtn.addEventListener('click', function() {
+			document.getElementById('photoTransport').src="img/motorhome.png";
+			h1Elem["0"].textContent = "MOTORHOME";
+			h2Elem["0"].textContent = "$200 PER DAY";
+			h2Elem2["0"].textContent ="17L/100KM";
+		});
+
+		btn.addEventListener('click', function() {
+			document.getElementById('photoTransport').src="img/motorbike.png";
+			h1Elem["0"].textContent = "MOTORBIKE";
+			h2Elem["0"].textContent = "$109 PER DAY";
+			h2Elem2["0"].textContent ="3.7L/100KM";
+		});
+
+
+		var myLocation 		= document.getElementById('input-space-from');
+		var myDestinationIs = document.getElementById('input-space-to');
+		var peopleAmount 	= document.getElementById('my-number');
+		var daysAmount 		= document.getElementById('my-number-days');
+		var subtractPeople	= document.getElementById('subtract');
+		var addPeople		= document.getElementById('add');
+		var addDays			= document.getElementById('add-days');
+		var subtractDays	= document.getElementById('subtract-days');
+
+
+		$(document).ready(function(){
+
+    		$("#submit-arrow").click(function(event){
+    			event.preventDefault();
+
+        		console.log(myLocation.value);
+        		console.log(myDestinationIs.value);
+        		console.log(peopleAmount.value);
+        		console.log(daysAmount.value);
+   		 	});
+		});
+
+		addPeople.addEventListener('click', increaseValue);
+		function increaseValue() {
+			  var value = parseInt(peopleAmount.value, 10);
+			  value = isNaN(value) ? 0 : value;
+			  value++;
+			  peopleAmount.value = value;
+		}
+
+		subtractPeople.addEventListener('click', decreaseValue);
+		function decreaseValue() {
+			  var value = parseInt(peopleAmount.value, 10);
+			  value = isNaN(value) ? 0 : value;
+			  value < 1 ? value = 1 : '';
+			  value--;
+			  peopleAmount.value = value;
+		}
 		
-		// flys to a random location on input
-		document.getElementById('input-space-to').addEventListener('click', function () {
-	    	// Fly to a random location by offsetting the point -74.50, 40
-	   		// by up to 5 degrees.
-	    	map.flyTo({
-	        	center: [
-	            -74.50 + (Math.random() - 0.5) * 10,
-	            40 + (Math.random() - 0.5) * 10]
-	    	});
-		});
+		addDays.addEventListener('click', increaseValue2);
+		function increaseValue2() {
+			  var value = parseInt(daysAmount.value, 10);
+			  value = isNaN(value) ? 0 : value;
+			  value++;
+			  daysAmount.value = value;
+		}
 
-		// location stuff
-		var location 	= document.getElementById('input-space-from').value;
-		var destination = document.getElementById('input-space-to').value;
-		var myArray = [location, destination];
-		console.log(myArray);
+		subtractDays.addEventListener('click', decreaseValue2);
+		function decreaseValue2() {
+			  var value = parseInt(daysAmount.value, 10);
+			  value = isNaN(value) ? 0 : value;
+			  value < 1 ? value = 1 : '';
+			  value--;
+			  daysAmount.value = value;
+		}
 
+
+		// function carDealer () {
+
+		// 	if (peopleAmount.value )
+
+
+		// }
+		// peopleAmount.value
+		// daysAmount.value
 
 
 
@@ -69,11 +166,6 @@ var init = function () {
 		//     });
 		// }
 		// panelMove ();
-
-	
-
-
-
 
 	} // myForm function ends
 
