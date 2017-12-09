@@ -87,15 +87,26 @@ var init = function () {
 		});
 
 
-		var myLocation 		= document.getElementById('input-space-from');
-		var myDestinationIs = document.getElementById('input-space-to');
-		var peopleAmount 	= document.getElementById('my-number');
-		var daysAmount 		= document.getElementById('my-number-days');
-		var subtractPeople	= document.getElementById('subtract');
-		var addPeople		= document.getElementById('add');
-		var addDays			= document.getElementById('add-days');
-		var subtractDays	= document.getElementById('subtract-days');
+		var myLocation 			= document.getElementById('input-space-from');
+		var myDestinationIs 	= document.getElementById('input-space-to');
+		var peopleAmount 		= document.getElementById('my-number');
+		var daysAmount 			= document.getElementById('my-number-days');
+		var subtractPeople		= document.getElementById('subtract');
+		var addPeople			= document.getElementById('add');
+		var addDays				= document.getElementById('add-days');
+		var subtractDays		= document.getElementById('subtract-days');
 
+		// var carSelect 		= document.getElementsByClassName('checkbox1');
+		var carSelectMotor		= document.getElementById('motorbikeCheck');
+		var carSelectSmall		= document.getElementById('smartCarCheck');
+		var carSelectLarge		= document.getElementById('largeCarCheck');
+		var carSelectMotorhome	= document.getElementById('motorhomeCheck');
+
+		// car divs 
+		var car1 = document.getElementById("motorbike");
+		var car2 = document.getElementById("smartCar");
+		var car3 = document.getElementById("largeCar");
+		var car4 = document.getElementById("motorhome");
 
 		$(document).ready(function(){
 
@@ -104,8 +115,37 @@ var init = function () {
 
         		console.log(myLocation.value);
         		console.log(myDestinationIs.value);
-        		console.log(peopleAmount.value);
-        		console.log(daysAmount.value);
+        		// console.log(peopleAmount.value);
+
+
+			if (peopleAmount.value === '1') {
+				console.log(peopleAmount.value);
+					car1.style.display = "none";
+
+				} else {
+					car1.style.display = "";
+					console.log('false');
+				}
+
+			if (peopleAmount.value >= '1' && <= '2') {
+
+				car2.style.display = "";
+
+				} else {
+
+					car2.syle.display = "none";
+					
+				}	
+
+        		// if (peopleAmount.value === '1') {
+        		// 	alert('fuck you');
+        		// }
+        		// console.log(daysAmount.value);
+        		// // console.log(carSelect[0].checked);
+        		// console.log(carSelectMotor.checked);
+        		// console.log(carSelectSmall.checked);
+        		// console.log(carSelectLarge.checked);
+        		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
 
@@ -146,10 +186,17 @@ var init = function () {
 
 		// function carDealer () {
 
-		// 	if (peopleAmount.value )
+		// 	if (peopleAmount.value === '1') {
+		// 		console.log(peopleAmount.value);
+		// 			document.getElementById("motorbike").style.display = "none";
 
-
+		// 		} else {
+		// 			console.log('false');
+		// 		}
 		// }
+
+		// carDealer();
+
 		// peopleAmount.value
 		// daysAmount.value
 
