@@ -171,26 +171,36 @@ var init = function () {
 		};
 
 
-		
-			console.dir(fuelCost);
+		$(carSelect).change(function() {
 
-			// if (carSelectMotor.checked) {
-			// 	fuelCost.textContent = "hello";
-			// 	// (daysAmountInt * pricePerDay.items[2]);
-			// }
+    		if (carSelectMotor.checked == true) {
+        			console.log(carSelectMotor.checked);
+        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
+        	}
+
+		});
+
+  				// 		alert( "change" );
+  				// 		fuelCost.textContent = "FUEL:" + " hello";
+			
+
 
         		// console.log(daysAmount.value);
         		// // console.log(carSelect[0].checked);
-        		// console.log(carSelectMotor.checked);
         		// console.log(carSelectSmall.checked);
         		// console.log(carSelectLarge.checked);
         		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
-		$(carSelect).change(function() {
-  				alert( "change" );
-  				fuelCost.textContent = "FUEL:" + " hello";
-			});
+
+
+
+
+			// if (carSelectMotor.checked) {
+			// 	fuelCost.textContent = "hello";
+			// 	alert('checked');
+			// 	// (daysAmountInt * pricePerDay.items[2]);
+			// }
 
 		addPeople.addEventListener('click', increaseValue);
 		function increaseValue() {
