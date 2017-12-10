@@ -102,44 +102,62 @@ var init = function () {
 		var carSelectLarge		= document.getElementById('largeCarCheck');
 		var carSelectMotorhome	= document.getElementById('motorhomeCheck');
 
+		var noOptionsAvailable  = document.getElementById('noOptionText');
+		var noOptionContainer	= document.getElementsByClassName('noOption');
+
 		// car divs 
 		var car1 = document.getElementById("motorbike");
 		var car2 = document.getElementById("smartCar");
 		var car3 = document.getElementById("largeCar");
 		var car4 = document.getElementById("motorhome");
 
+
+		
+
 		$(document).ready(function(){
 
     		$("#submit-arrow").click(function(event){
     			event.preventDefault();
 
-        		console.log(myLocation.value);
-        		console.log(myDestinationIs.value);
-        		// console.log(peopleAmount.value);
 
+			var peopleAmountInt = parseInt(peopleAmount.value);
+			var daysAmountInt 	= parseInt(daysAmount.value);
 
-			if (peopleAmount.value === '1') {
-				console.log(peopleAmount.value);
-					car1.style.display = "none";
+			if ((peopleAmountInt === 1) && (daysAmountInt >= 1 && daysAmountInt <= 5)) {
+					car1.style.display = "inline-block";
+			} else {
+					// car1.style.display = "none";
+					$(car1).hide(400);	
+			}	
 
-				} else {
-					car1.style.display = "";
-					console.log('false');
-				}
+			if ((peopleAmountInt >= 1 && peopleAmountInt <= 2) && (daysAmountInt >= 1 && daysAmountInt <= 10)){
+					car2.style.display = "inline-block";
+			} else {
+					// car2.style.display = "none";
+					$(car2).hide(400);
+			}
 
-			if (peopleAmount.value >= '1' && <= '2') {
+			if ((peopleAmountInt <= 5) && (daysAmountInt >= 3 && daysAmountInt <= 10)) {
+					car3.style.display = "inline-block";
+			} else {
+					// car3.style.display = "none";
+					$(car3).hide(400);
+			}
 
-				car2.style.display = "";
+			if ((peopleAmountInt >= 2 && peopleAmountInt <= 6) && (daysAmountInt >= 2 && daysAmountInt <= 15)) {
+					car4.style.display = "inline-block";
+			} else {
+					// car4.style.display = "none";
+					$(car4).hide(400);
+			} 
+				// console.dir(noOptionContainer); ["0"].style.cssText 
+			if ((peopleAmountInt > 6 || peopleAmountInt < 1) || (daysAmountInt < 1 || daysAmountInt > 15)) {
+					noOptionContainer[0].style.display = "inline-block";
+					noOptionsAvailable.textContent = "No options available";
+			} else {
+					noOptionContainer[0].style.display = "none";
+			}
 
-				} else {
-
-					car2.syle.display = "none";
-					
-				}	
-
-        		// if (peopleAmount.value === '1') {
-        		// 	alert('fuck you');
-        		// }
         		// console.log(daysAmount.value);
         		// // console.log(carSelect[0].checked);
         		// console.log(carSelectMotor.checked);
@@ -148,6 +166,7 @@ var init = function () {
         		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
+
 
 		addPeople.addEventListener('click', increaseValue);
 		function increaseValue() {
