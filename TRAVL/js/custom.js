@@ -25,7 +25,7 @@ var init = function () {
 		/////////// modal pop out ///////////
 
 		// Get the modal
-		var modal = document.getElementById('myModal');
+		var modal 			= document.getElementById('myModal');
 
 		// Get the button that opens the modal
 		var btn 			= document.getElementById("motorbike");
@@ -37,7 +37,7 @@ var init = function () {
 		var h2Elem2			= document.getElementsByClassName('modalPrice2');
 
 		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
+		var span 			= document.getElementsByClassName("close")[0];
 
 		var buttons = document.getElementsByClassName('car');
 			for (var i = 0, len = buttons.length; i < len; i++) {
@@ -106,14 +106,14 @@ var init = function () {
 		var noOptionContainer	= document.getElementsByClassName('noOption');
 
 		// car divs 
-		var car1 = document.getElementById("motorbike");
-		var car2 = document.getElementById("smartCar");
-		var car3 = document.getElementById("largeCar");
-		var car4 = document.getElementById("motorhome");
+		var car1 				= document.getElementById("motorbike");
+		var car2 				= document.getElementById("smartCar");
+		var car3 				= document.getElementById("largeCar");
+		var car4 				= document.getElementById("motorhome");
 
 		// costs
-		var fuelCost 		= document.getElementById('fuel-cost');
-		var overDistanceCost = document.getElementById('over-cost');
+		var fuelCost 			= document.getElementById('fuel-cost');
+		var overDistanceCost 	= document.getElementById('over-cost');
 		
 
 		$(document).ready(function(){
@@ -160,8 +160,6 @@ var init = function () {
 					noOptionContainer[0].style.display = "none";
 			}
 
-
-
 		var pricePerDay = {
 
 			motorbike: 109,
@@ -170,21 +168,19 @@ var init = function () {
 			motorhome: 200
 		};
 
-
 		$(carSelect).change(function() {
 
     		if (carSelectMotor.checked == true) {
-        			console.log(carSelectMotor.checked);
         			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
+        	} else if (carSelectSmall.checked == true) {
+        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
+        	} else if (carSelectLarge.checked == true) {
+        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
+        	} else if (carSelectMotorhome.checked == true) {
+        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
         	}
 
 		});
-
-  				// 		alert( "change" );
-  				// 		fuelCost.textContent = "FUEL:" + " hello";
-			
-
-
         		// console.log(daysAmount.value);
         		// // console.log(carSelect[0].checked);
         		// console.log(carSelectSmall.checked);
@@ -192,15 +188,6 @@ var init = function () {
         		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
-
-
-
-
-			// if (carSelectMotor.checked) {
-			// 	fuelCost.textContent = "hello";
-			// 	alert('checked');
-			// 	// (daysAmountInt * pricePerDay.items[2]);
-			// }
 
 		addPeople.addEventListener('click', increaseValue);
 		function increaseValue() {
@@ -236,27 +223,12 @@ var init = function () {
 			  daysAmount.value = value;
 		}
 
-		// function priceCalculator () {
+		// function myFunction() {
+  //   		setTimeout(function() { 
+  //   		alert("Hello");
 
-		// 	var pricePerDay = {
-
-		// 		motorbike: 109,
-		// 		smallCar: 129,
-		// 		largeCar: 144,
-		// 		motorhome: 200
-		// };
-
-		// 	$(carSelect).change(function() {
-  // 				alert( "change" );
-
-		// 	});
-
+  //   		}, 3000);
 		// }
-		// priceCalculator();
-
-
-
-
 
 		// panel moving function
 		// function panelMove () {
