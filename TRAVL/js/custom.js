@@ -96,7 +96,7 @@ var init = function () {
 		var addDays				= document.getElementById('add-days');
 		var subtractDays		= document.getElementById('subtract-days');
 
-		// var carSelect 		= document.getElementsByClassName('checkbox1');
+		var carSelect 			= document.getElementsByClassName('checkbox');
 		var carSelectMotor		= document.getElementById('motorbikeCheck');
 		var carSelectSmall		= document.getElementById('smartCarCheck');
 		var carSelectLarge		= document.getElementById('largeCarCheck');
@@ -111,7 +111,9 @@ var init = function () {
 		var car3 = document.getElementById("largeCar");
 		var car4 = document.getElementById("motorhome");
 
-
+		// costs
+		var fuelCost 		= document.getElementById('fuel-cost');
+		var overDistanceCost = document.getElementById('over-cost');
 		
 
 		$(document).ready(function(){
@@ -158,6 +160,25 @@ var init = function () {
 					noOptionContainer[0].style.display = "none";
 			}
 
+
+
+		var pricePerDay = {
+
+			motorbike: 109,
+			smallCar: 129,
+			largeCar: 144,
+			motorhome: 200
+		};
+
+
+		
+			console.dir(fuelCost);
+
+			// if (carSelectMotor.checked) {
+			// 	fuelCost.textContent = "hello";
+			// 	// (daysAmountInt * pricePerDay.items[2]);
+			// }
+
         		// console.log(daysAmount.value);
         		// // console.log(carSelect[0].checked);
         		// console.log(carSelectMotor.checked);
@@ -166,7 +187,10 @@ var init = function () {
         		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
-
+		$(carSelect).change(function() {
+  				alert( "change" );
+  				fuelCost.textContent = "FUEL:" + " hello";
+			});
 
 		addPeople.addEventListener('click', increaseValue);
 		function increaseValue() {
@@ -202,22 +226,24 @@ var init = function () {
 			  daysAmount.value = value;
 		}
 
+		// function priceCalculator () {
 
-		// function carDealer () {
+		// 	var pricePerDay = {
 
-		// 	if (peopleAmount.value === '1') {
-		// 		console.log(peopleAmount.value);
-		// 			document.getElementById("motorbike").style.display = "none";
+		// 		motorbike: 109,
+		// 		smallCar: 129,
+		// 		largeCar: 144,
+		// 		motorhome: 200
+		// };
 
-		// 		} else {
-		// 			console.log('false');
-		// 		}
+		// 	$(carSelect).change(function() {
+  // 				alert( "change" );
+
+		// 	});
+
 		// }
+		// priceCalculator();
 
-		// carDealer();
-
-		// peopleAmount.value
-		// daysAmount.value
 
 
 
