@@ -3,8 +3,15 @@ var init = function () {
 
 	function myForm() {
 
+
 		// Mapbox controls 
 		mapboxgl.accessToken = 'pk.eyJ1IjoiY2FtbXkxMSIsImEiOiJjamFib2p6cGwwMjNhMnhtaGptbmF1azJrIn0.OtcZ5rIhMtthxs7yu6KqmQ';
+
+	   	var directions = new MapboxDirections({
+      		accessToken: 'pk.eyJ1IjoidmVyYXRlY2giLCJhIjoiY2phYmZ1NXFmMHIwMDM1cGV4bHV4bHhzbSJ9.gbT5J_uXxbjRRuj00D7Xeg',
+      		unit: 'metric'
+    	});
+
 		var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
@@ -12,6 +19,28 @@ var init = function () {
 		zoom: 12,
 		minZoom: 5
 		});
+
+		map.addControl(directions, 'top-left');
+
+    	console.log(directions);
+
+    	directions.on('route', function(directions){
+        // var datapls = directions.getDestination();
+        console.log(directions);
+        alert('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
+    });  
+
+    	document.getElementById('submit-arrow').addEventListener('click', setRouteDynamically, false);
+
+	    function setRouteDynamically(){
+			var myLocation 			= document.getElementById('input-space-from').value;
+			var myDestinationIs 	= document.getElementById('input-space-to').value;
+  			// var getAA = document.getElementById('aa').value;
+	      	// var getBB = document.getElementById('bb').value;
+	      	directions.setOrigin(myLocation); 
+	      	directions.setDestination(myDestinationIs);        
+	    }
+
 
 		// tipr plugin for tooltips
 		$(document).ready(function() {
@@ -21,6 +50,39 @@ var init = function () {
           		'space': 7
 	     	});
 		});
+
+		/////// mapbox directios and geocoder stuff /////
+
+		// var tripDistance = {
+
+		// 	Auckland: 109,
+		// 	: 129,
+		// 	: 144,
+		// 	: 200
+		// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		/////////// modal pop out ///////////
 
@@ -87,8 +149,6 @@ var init = function () {
 		});
 
 
-		var myLocation 			= document.getElementById('input-space-from');
-		var myDestinationIs 	= document.getElementById('input-space-to');
 		var peopleAmount 		= document.getElementById('my-number');
 		var daysAmount 			= document.getElementById('my-number-days');
 		var subtractPeople		= document.getElementById('subtract');
@@ -120,6 +180,13 @@ var init = function () {
 
     		$("#submit-arrow").click(function(event){
     			event.preventDefault();
+
+
+
+
+
+
+
 
 
 			var peopleAmountInt = parseInt(peopleAmount.value);
@@ -160,6 +227,13 @@ var init = function () {
 					noOptionContainer[0].style.display = "none";
 			}
 
+
+
+
+
+
+
+
 		var pricePerDay = {
 
 			motorbike: 109,
@@ -171,16 +245,22 @@ var init = function () {
 		$(carSelect).change(function() {
 
     		if (carSelectMotor.checked == true) {
-        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
+        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
         	} else if (carSelectSmall.checked == true) {
-        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
+        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
         	} else if (carSelectLarge.checked == true) {
-        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
+        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
         	} else if (carSelectMotorhome.checked == true) {
-        			fuelCost.textContent = "TOTAL:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
+        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
         	}
 
 		});
+
+				// overDistanceCost.textContent = "OVER:" + " " + petrolperkm * distanceKm / 100 = litres 
+				// litres 
+
+				// 214.9 = petrol price cents
+
         		// console.log(daysAmount.value);
         		// // console.log(carSelect[0].checked);
         		// console.log(carSelectSmall.checked);
@@ -222,13 +302,6 @@ var init = function () {
 			  value--;
 			  daysAmount.value = value;
 		}
-
-		// function myFunction() {
-  //   		setTimeout(function() { 
-  //   		alert("Hello");
-
-  //   		}, 3000);
-		// }
 
 		// panel moving function
 		// function panelMove () {
