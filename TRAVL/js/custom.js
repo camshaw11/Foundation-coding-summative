@@ -7,17 +7,17 @@ var init = function () {
 		// Mapbox controls 
 		mapboxgl.accessToken = 'pk.eyJ1IjoiY2FtbXkxMSIsImEiOiJjamFib2p6cGwwMjNhMnhtaGptbmF1azJrIn0.OtcZ5rIhMtthxs7yu6KqmQ';
 
-	   	var directions = new MapboxDirections({
-      		accessToken: 'pk.eyJ1IjoidmVyYXRlY2giLCJhIjoiY2phYmZ1NXFmMHIwMDM1cGV4bHV4bHhzbSJ9.gbT5J_uXxbjRRuj00D7Xeg',
-      		unit: 'metric'
+		   	var directions = new MapboxDirections({
+	      		accessToken: 'pk.eyJ1IjoidmVyYXRlY2giLCJhIjoiY2phYmZ1NXFmMHIwMDM1cGV4bHV4bHhzbSJ9.gbT5J_uXxbjRRuj00D7Xeg',
+	      		unit: 'metric'
     	});
 
 		var map = new mapboxgl.Map({
-		container: 'map',
-		style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
-		center: [174.763817,-41.295241],
-		zoom: 12,
-		minZoom: 5
+			container: 'map',
+			style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
+			center: [174.763817,-41.295241],
+			zoom: 12,
+			minZoom: 5
 		});
 
 		map.addControl(directions, 'top-left');
@@ -25,18 +25,19 @@ var init = function () {
     	console.log(directions);
 
     	directions.on('route', function(directions){
-        // var datapls = directions.getDestination();
-        console.log(directions);
-        alert('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
-    });  
+
+        	// var datapls = directions.getDestination();
+        	console.log(directions);
+        	console.log('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
+        	overDistanceCost.textContent = "FUEL:" + " " + ((directions.route[0].distance / 1000) * 9.7 / 100).toFixed(1) + "L";
+
+    	});  
 
     	document.getElementById('submit-arrow').addEventListener('click', setRouteDynamically, false);
 
 	    function setRouteDynamically(){
 			var myLocation 			= document.getElementById('input-space-from').value;
 			var myDestinationIs 	= document.getElementById('input-space-to').value;
-  			// var getAA = document.getElementById('aa').value;
-	      	// var getBB = document.getElementById('bb').value;
 	      	directions.setOrigin(myLocation); 
 	      	directions.setDestination(myDestinationIs);        
 	    }
@@ -50,34 +51,6 @@ var init = function () {
           		'space': 7
 	     	});
 		});
-
-		/////// mapbox directios and geocoder stuff /////
-
-		// var tripDistance = {
-
-		// 	Auckland: 109,
-		// 	: 129,
-		// 	: 144,
-		// 	: 200
-		// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -148,33 +121,33 @@ var init = function () {
 			h2Elem2["0"].textContent ="3.7L/100KM";
 		});
 
-
+ 		//////////// input value variables //////////////////////////////////
 		var peopleAmount 		= document.getElementById('my-number');
 		var daysAmount 			= document.getElementById('my-number-days');
 		var subtractPeople		= document.getElementById('subtract');
 		var addPeople			= document.getElementById('add');
 		var addDays				= document.getElementById('add-days');
 		var subtractDays		= document.getElementById('subtract-days');
-
+		//////////////////// checkbox value variables //////////////////////////////////
 		var carSelect 			= document.getElementsByClassName('checkbox');
 		var carSelectMotor		= document.getElementById('motorbikeCheck');
 		var carSelectSmall		= document.getElementById('smartCarCheck');
 		var carSelectLarge		= document.getElementById('largeCarCheck');
 		var carSelectMotorhome	= document.getElementById('motorhomeCheck');
-
 		var noOptionsAvailable  = document.getElementById('noOptionText');
 		var noOptionContainer	= document.getElementsByClassName('noOption');
-
-		// car divs 
+		//////////////////// car button variables //////////////////////////////////
 		var car1 				= document.getElementById("motorbike");
 		var car2 				= document.getElementById("smartCar");
 		var car3 				= document.getElementById("largeCar");
 		var car4 				= document.getElementById("motorhome");
-
-		// costs
+		//////////////////// cost calculating variables //////////////////////////////////
 		var fuelCost 			= document.getElementById('fuel-cost');
 		var overDistanceCost 	= document.getElementById('over-cost');
 		
+
+
+
 
 		$(document).ready(function(){
 
@@ -182,82 +155,62 @@ var init = function () {
     			event.preventDefault();
 
 
+					var peopleAmountInt = parseInt(peopleAmount.value);
+					var daysAmountInt 	= parseInt(daysAmount.value);
+
+					if ((peopleAmountInt === 1) && (daysAmountInt >= 1 && daysAmountInt <= 5)) {
+							car1.style.display = "inline-block";
+					} else {
+							$(car1).hide(400);	
+					}	
+					if ((peopleAmountInt >= 1 && peopleAmountInt <= 2) && (daysAmountInt >= 1 && daysAmountInt <= 10)){
+							car2.style.display = "inline-block";
+					} else {
+							$(car2).hide(400);
+					}
+					if ((peopleAmountInt <= 5) && (daysAmountInt >= 3 && daysAmountInt <= 10)) {
+							car3.style.display = "inline-block";
+					} else {
+							$(car3).hide(400);
+					}
+					if ((peopleAmountInt >= 2 && peopleAmountInt <= 6) && (daysAmountInt >= 2 && daysAmountInt <= 15)) {
+							car4.style.display = "inline-block";
+					} else {
+							$(car4).hide(400);
+					} 
+					if ((peopleAmountInt > 6 || peopleAmountInt < 1) || (daysAmountInt < 1 || daysAmountInt > 15)) {
+							noOptionContainer[0].style.display = "inline-block";
+							noOptionsAvailable.textContent = "No options available";
+					} else {
+							noOptionContainer[0].style.display = "none";
+					}
 
 
+				var pricePerDay = {
 
+					motorbike: 109,
+					smallCar: 129,
+					largeCar: 144,
+					motorhome: 200
 
+				};
 
+				$(carSelect).change(function() {
 
+		    		if (carSelectMotor.checked == true) {
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
+		        	} else if (carSelectSmall.checked == true) {
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
+		        	} else if (carSelectLarge.checked == true) {
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
+		        	} else if (carSelectMotorhome.checked == true) {
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
+		        			// overDistanceCost.textContent = "OVER:" + " " + 8.9 * directions.route[0].distance / 1000 / 100;
+		        	}
 
-			var peopleAmountInt = parseInt(peopleAmount.value);
-			var daysAmountInt 	= parseInt(daysAmount.value);
+				});
 
-			if ((peopleAmountInt === 1) && (daysAmountInt >= 1 && daysAmountInt <= 5)) {
-					car1.style.display = "inline-block";
-			} else {
-					// car1.style.display = "none";
-					$(car1).hide(400);	
-			}	
-
-			if ((peopleAmountInt >= 1 && peopleAmountInt <= 2) && (daysAmountInt >= 1 && daysAmountInt <= 10)){
-					car2.style.display = "inline-block";
-			} else {
-					// car2.style.display = "none";
-					$(car2).hide(400);
-			}
-
-			if ((peopleAmountInt <= 5) && (daysAmountInt >= 3 && daysAmountInt <= 10)) {
-					car3.style.display = "inline-block";
-			} else {
-					// car3.style.display = "none";
-					$(car3).hide(400);
-			}
-
-			if ((peopleAmountInt >= 2 && peopleAmountInt <= 6) && (daysAmountInt >= 2 && daysAmountInt <= 15)) {
-					car4.style.display = "inline-block";
-			} else {
-					// car4.style.display = "none";
-					$(car4).hide(400);
-			} 
-				// console.dir(noOptionContainer); ["0"].style.cssText 
-			if ((peopleAmountInt > 6 || peopleAmountInt < 1) || (daysAmountInt < 1 || daysAmountInt > 15)) {
-					noOptionContainer[0].style.display = "inline-block";
-					noOptionsAvailable.textContent = "No options available";
-			} else {
-					noOptionContainer[0].style.display = "none";
-			}
-
-
-
-
-
-
-
-
-		var pricePerDay = {
-
-			motorbike: 109,
-			smallCar: 129,
-			largeCar: 144,
-			motorhome: 200
-		};
-
-		$(carSelect).change(function() {
-
-    		if (carSelectMotor.checked == true) {
-        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
-        	} else if (carSelectSmall.checked == true) {
-        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
-        	} else if (carSelectLarge.checked == true) {
-        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
-        	} else if (carSelectMotorhome.checked == true) {
-        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
-        	}
-
-		});
-
-				// overDistanceCost.textContent = "OVER:" + " " + petrolperkm * distanceKm / 100 = litres 
-				// litres 
+				// overDistanceCost.textContent = "OVER:" + " " + 8.9 * directions.route['0'].distance / 1000 / 100; 
 
 				// 214.9 = petrol price cents
 
@@ -268,6 +221,8 @@ var init = function () {
         		// console.log(carSelectMotorhome.checked);
    		 	});
 		});
+
+		////////////  button increment and decrement  ////////////////
 
 		addPeople.addEventListener('click', increaseValue);
 		function increaseValue() {
@@ -302,17 +257,6 @@ var init = function () {
 			  value--;
 			  daysAmount.value = value;
 		}
-
-		// panel moving function
-		// function panelMove () {
-		//     $('.panel').click(function(){
-		//         // alert("The was clicked.");
-		//           // $(this).removeClass('panel-three').addClass('panel-back');
-		//             $(this).toggleClass('panel-back panel');
-		//           // $(this).removeClass('panel-back').addClass('panel-three');
-		//     });
-		// }
-		// panelMove ();
 
 	} // myForm function ends
 

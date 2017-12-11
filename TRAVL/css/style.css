@@ -2,7 +2,8 @@ body {
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  background-color: #2f4454; }
+  background-color: #2f4454;
+  overflow: hidden; }
 
 #map {
   width: 100%;
@@ -127,7 +128,7 @@ input:focus {
 
 .set-width-people {
   width: 40px;
-  padding-left: 12px;
+  padding-left: 10px;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
@@ -170,8 +171,7 @@ h3 {
 #car-group {
   margin-top: 5px;
   background-color: #376E6F;
-  padding: 0px;
-  margin-right: 80px; }
+  padding: 0px; }
 
 .car {
   border: none;
@@ -325,7 +325,7 @@ img {
   border: none;
   margin-top: 2px;
   padding-left: 5px;
-  font-size: 48px; }
+  font-size: 3vw; }
 
 .modalPrice {
   text-align: center; }
@@ -366,7 +366,7 @@ p {
   width: 18px;
   background-color: #376E6F; }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a background color */
 .container:hover input ~ .checkmark {
   background-color: #1C3334; }
 
@@ -395,3 +395,91 @@ p {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg); }
+
+.noOption {
+  display: none;
+  margin-bottom: 3px; }
+
+#noOptionText {
+  background-color: #2E151B;
+  text-align: center;
+  letter-spacing: 20px;
+  padding: 10px;
+  padding-left: 25px; }
+
+@media only screen and (max-width: 1068px) {
+  .panel-three {
+    width: 395px; }
+
+  .panel-two {
+    width: 405px; }
+
+  .panel-one {
+    width: 415px; }
+
+  header {
+    margin-left: 14px; }
+
+  fieldset {
+    margin-left: 20px;
+    margin-right: 160px; }
+
+  #people-days {
+    margin-right: 260px; }
+
+  #submit-arrow {
+    right: 22px; }
+
+  #smartCar {
+    margin-left: 1px; }
+
+  #motorhome {
+    margin-left: 1px; }
+
+  #calculations {
+    margin-left: 20px;
+    margin-right: 22px; }
+
+  #car-group {
+    margin-right: 0px; }
+
+  .modal {
+    margin-left: 438px; }
+    .modal .head-modal {
+      letter-spacing: 5px; }
+    .modal .modalPrice {
+      letter-spacing: 5px; }
+    .modal .modalPrice2 {
+      letter-spacing: 5px; } }
+@media only screen and (max-width: 414px) {
+  header {
+    margin-top: 0px; }
+
+  form {
+    margin-top: 100px; }
+
+  #submit-arrow {
+    top: 254px;
+    height: 150px;
+    width: 97px; }
+
+  #largeCar, #motorbike, #motorhome, #smartCar {
+    height: 100px; }
+
+  img {
+    float: right; }
+
+  h2 {
+    font-size: 16px; }
+
+  input {
+    font-size: 18px; }
+
+  h1 {
+    margin-top: 15px;
+    font-size: 60px;
+    padding-right: 17px;
+    padding-left: 40px; }
+
+  header {
+    margin-left: 14px; } }
