@@ -45,12 +45,26 @@ var init = function () {
 
 	function myForm() {
 
+		var pricePerDay = {
+
+			motorbike: [109, 3.7],
+			smallCar: [129, 8.5],
+			largeCar: [144, 9.7],
+			motorhome: [200, 17],
+			directionsData: ''
+
+		};
+
 
 		////// click events /////
 		addPeople.addEventListener('click', increaseValue, false);
+
 		subtractPeople.addEventListener('click', decreaseValue, false);
+
 		addDays.addEventListener('click', increaseValue2, false);
+
 		subtractDays.addEventListener('click', decreaseValue2, false);
+
 		submitArrow.addEventListener('click', function() {
 
      		setRouteDynamically();
@@ -77,12 +91,19 @@ var init = function () {
 
     	console.log(directions);
 
-    	directions.on('route', function(directions){
+    	var directionsData = directions.on('route', function(directions){
+
+    		
+        	// console.log(directions);
+        	// console.log('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
+        	// // overDistanceCost.textContent = "FUEL:" + " " + ((directions.route[0].distance / 1000) * 9.7 / 100).toFixed(1) + "L";
+        	pricePerDay.directionsData = directions;
 
         	console.log(directions);
-        	console.log('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
-        	overDistanceCost.textContent = "FUEL:" + " " + ((directions.route[0].distance / 1000) * 9.7 / 100).toFixed(1) + "L";
-
+        	console.log(pricePerDay.directionsData.route["0"].distance);
+        	console.log(((directions.route[0].distance / 1000) * 3.7 / 100).toFixed(1) + "L");
+        	console.log(((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorbike[1] / 100).toFixed(1) + "L");
+			// overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.directions.route[0].distance / 1000) * motorbike[1] / 100).toFixed(1) + "L";
     	});  
 
 	    function setRouteDynamically(){
@@ -159,15 +180,6 @@ var init = function () {
 
 			event.preventDefault();
 
-				var pricePerDay = {
-
-					motorbike: 109,
-					smallCar: 129,
-					largeCar: 144,
-					motorhome: 200
-
-				};
-
 					var peopleAmountInt = parseInt(peopleAmount.value);
 					var daysAmountInt 	= parseInt(daysAmount.value);
 
@@ -202,17 +214,25 @@ var init = function () {
 				$(carSelect).change(function() {
 
 		    		if (carSelectMotor.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike;
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike[0];
+		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorbike[1] / 100).toFixed(1) + "L";
 		        	} else if (carSelectSmall.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar;
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar[0];
+		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.smallCar[1] / 100).toFixed(1) + "L";
 		        	} else if (carSelectLarge.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar;
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar[0];
+		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.largeCar[1] / 100).toFixed(1) + "L";
 		        	} else if (carSelectMotorhome.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome;
+		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome[0];
+		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorhome[1] / 100).toFixed(1) + "L";
 		        	}
-
+		
 				});
 	 	}
+
+				$('input[type="checkbox"]').on('change', function() {
+				   $('input[type="checkbox"]').not(this).prop('checked', false);
+				});
 
 
 		////////////  button increment and decrement  //////////////
