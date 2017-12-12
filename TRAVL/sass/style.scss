@@ -492,7 +492,7 @@ p {
   padding-left: 25px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1168px) {
     .panel-three {
       width: 395px;
     }
@@ -579,5 +579,30 @@ p {
   }
   header {
     margin-left: 14px;
+  }
+}
+
+@-moz-document url-prefix() {
+  #submit-arrow {
+      top: 362px;
+      height: 172px;
+  }
+  #car-group {
+
+  }
+  #motorhome {
+      padding: 2px;
+      position: absolute;
+      margin-left: 4px;
+      padding-bottom: 0px;
+  }
+  #smartCar {
+      padding: 2px;
+  }
+  #motorbike {
+      padding: 2px;
+  }
+  #largeCar {
+      padding: 2px;
   }
 }
