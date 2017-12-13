@@ -24,13 +24,14 @@ var init = function () {
 		//////////////////// cost calculating variables //////////////////////////////////
 		var fuelCost 			= document.getElementById('fuel-cost');
 		var overDistanceCost 	= document.getElementById('over-cost');
-		var submitArrow		 	= document.getElementById('submit-arrow');
+		var submitArrow		 	= document.getElementById('submitArrow');
 		/////////////////// input form values ////////////////////////////////////////////
 		var myLocation 			= document.getElementById('input-space-from').value;
 		var myDestinationIs 	= document.getElementById('input-space-to').value;
 		// Get the modal
 		var modal 				= document.getElementById('myModal');
 		// Get the button that opens the modal
+		var buttons 			= document.getElementsByClassName('car');
 		var btn 				= document.getElementById("motorbike");
 		var smartCarBtn 		= document.getElementById('smartCar');
 		var largeCarBtn 		= document.getElementById('largeCar');
@@ -44,7 +45,7 @@ var init = function () {
 		var span 			= document.getElementsByClassName("close")[0];
 
 	function myForm() {
-
+		// object with data about the car options
 		var pricePerDay = {
 
 			motorbike: [109, 3.7],
@@ -72,13 +73,13 @@ var init = function () {
 
 		});
 
-		// Mapbox controls 
+		///// Mapbox direction controls ////
 		mapboxgl.accessToken = 'pk.eyJ1IjoiY2FtbXkxMSIsImEiOiJjamFib2p6cGwwMjNhMnhtaGptbmF1azJrIn0.OtcZ5rIhMtthxs7yu6KqmQ';
 		   	var directions = new MapboxDirections({
 	      		accessToken: 'pk.eyJ1IjoidmVyYXRlY2giLCJhIjoiY2phYmZ1NXFmMHIwMDM1cGV4bHV4bHhzbSJ9.gbT5J_uXxbjRRuj00D7Xeg',
 	      		unit: 'metric'
     	});
-
+		/// Map initialiser
 		var map = new mapboxgl.Map({
 			container: 'map',
 			style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
@@ -89,23 +90,12 @@ var init = function () {
 
 		map.addControl(directions, 'top-left');
 
-    	console.log(directions);
-
     	var directionsData = directions.on('route', function(directions){
 
-    		
-        	// console.log(directions);
-        	// console.log('Your trip will be: ' + directions.route['0'].distance / 1000 + ' kms');
-        	// // overDistanceCost.textContent = "FUEL:" + " " + ((directions.route[0].distance / 1000) * 9.7 / 100).toFixed(1) + "L";
         	pricePerDay.directionsData = directions;
-
-        	console.log(directions);
-        	console.log(pricePerDay.directionsData.route["0"].distance);
-        	console.log(((directions.route[0].distance / 1000) * 3.7 / 100).toFixed(1) + "L");
-        	console.log(((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorbike[1] / 100).toFixed(1) + "L");
-			// overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.directions.route[0].distance / 1000) * motorbike[1] / 100).toFixed(1) + "L";
     	});  
 
+    	// append the origin and destination methods to my custom input fields
 	    function setRouteDynamically(){
 							
 			var myLocation 			= document.getElementById('input-space-from').value;
@@ -128,10 +118,9 @@ var init = function () {
 		/////////// modal pop out //////////
 
 		// on click of ANY of the cars, display the modal 
-		var buttons = document.getElementsByClassName('car');
-			for (var i = 0, len = buttons.length; i < len; i++) {
-    			buttons[i].onclick = function (){
-        			modal.style.display = "block";
+		for (var i = 0, len = buttons.length; i < len; i++) {
+			buttons[i].onclick = function (){
+    			modal.style.display = "block";
 			};
 		}
 
@@ -146,7 +135,7 @@ var init = function () {
 		        modal.style.display = "none";
 		    }
 		};
-
+		// change inner contents of the modal based on which car is clicked
 		smartCarBtn.addEventListener('click', function() {
 			modalImage.src="img/smartcar.png";
 			h1Elem["0"].textContent = "SMARTCAR";
@@ -175,7 +164,7 @@ var init = function () {
 			h2Elem2["0"].textContent ="3.7L/100KM";
 		});
 		
-
+		// people and day calculater to show suitable car for the users options
 		function carChooser () {
 
 			event.preventDefault();
@@ -210,7 +199,9 @@ var init = function () {
 							noOptionContainer[0].style.display = "none";
 					}
 
+				$('#submitArrow').removeClass('pulse');
 
+				// function fires as soon as a checkbox has been checked
 				$(carSelect).change(function() {
 
 		    		if (carSelectMotor.checked == true) {
@@ -229,11 +220,14 @@ var init = function () {
 		
 				});
 	 	}
-
+	 			// allows only one checkbox to be selected at a time
 				$('input[type="checkbox"]').on('change', function() {
 				   $('input[type="checkbox"]').not(this).prop('checked', false);
 				});
 
+				$('#add-days').click(function(){
+				    	$('#submitArrow').addClass('pulse');
+				});
 
 		////////////  button increment and decrement  //////////////
 
@@ -266,6 +260,17 @@ var init = function () {
 			  value--;
 			  daysAmount.value = value;
 		}
+
+		// panel moving function
+		// function panelMove () {
+		//     $('.panel-three').click(function(){
+		//         // alert("The was clicked.");
+		//           // $(this).removeClass('panel-three').addClass('panel-back');
+		//             $(this).toggleClass('panel-back panel');
+		//           // $(this).removeClass('panel-back').addClass('panel-three');
+		//     });
+		// }
+		// panelMove ();
 
 	} // myForm function ends
 

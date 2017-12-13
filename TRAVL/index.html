@@ -38,8 +38,13 @@
 	<div id="map"></div>
 	<div class="wrapper">
 		<div class="panel panel-one"></div>
-		<div class="panel panel-two"></div>
-		<div class="panel panel-three">
+		<div class="panel panel-two">
+			<div id="introBox">
+				<h1 class="introText" id="textOne"> WELCOME TO TRIVUL. </h1>
+				<h1 class="introText" id="textTwo"> LETS SORT YOUR TRANSPORT IN NEW ZEALAND </h1>
+			</div>
+		</div>
+ 		<div class="panel panel-three">
 			<div id="particles-js"></div>
 			<form id="form-travel" data-parsley-validate>
 				<fieldset>
@@ -49,7 +54,6 @@
 					<h2>TO</h2>
 					<input type="text" id="input-space-to" class="tip" data-mode="below" data-tip="What is your destination?" class="set-width" name="to">
 					<br>
-					<!-- <input type="submit" value="Submit"> -->
 				</fieldset>
 
 				<fieldset id="people-days">
@@ -64,11 +68,7 @@
 							<input type="text" id="my-number-days" class="set-width-people" name="days" value="1">
 						<button type="button" id="add-days" class="button-primary"><h3>+</h3></button>
 				</fieldset>
-
-				<!-- <fieldset id="submit-data"> -->
-					<input type="submit" id="submit-arrow" value=">">
-				<!-- </fieldset> -->
-
+					<input type="submit" class="" id="submitArrow" value=">">
 				<fieldset id="car-group">
 					<button type="button" id="motorbike" class="car">
 						<label class="container">
@@ -127,7 +127,7 @@
 					<h2 id="over-cost">FUEL:</h2>
 				</div>
 			</form>
-		</div>
+		</div> -->
 	</div>
 
 <!-- particles.js container -->

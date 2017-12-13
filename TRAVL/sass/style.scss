@@ -24,8 +24,8 @@ body {
     background: #DA7B93;
     // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
     // transition: width 0.6s;
-    -webkit-animation: mymove 0.5s ease-in-out forwards; /* Safari 4.0 - 8.0 */
-    animation: mymove 0.5s ease-in-out forwards;
+    -webkit-animation: mymove 1.5s ease-in-out forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 1.5s ease-in-out forwards;
     position: absolute;
     // left: -20px;
 }
@@ -46,8 +46,8 @@ body {
     background: #1C3334;
     // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
     // transition: width 0.8s;
-    -webkit-animation: mymove 0.5s ease-in-out forwards; /* Safari 4.0 - 8.0 */
-    animation: mymove 0.5s ease-in-out forwards;
+    -webkit-animation: mymove 2s ease-in-out forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 2s ease-in-out forwards;
     position: absolute;
     // left: -40px;
 }
@@ -55,24 +55,37 @@ body {
 // .panel-two:hover {
 //     width: 500px;
 // }
-
+#introBox {
+  width: 352px;
+  background-color: #2E151B; 
+  height: 602px;
+  position: absolute;
+  top: 180px;
+  left: 93px;
+}
 .panel-three {
     width: 540px;
     height: 100vh;
     background: #376E6F;
     // -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
     // transition: width 0.8s;
-    -webkit-animation: mymove 0.5s ease-in-out  forwards; /* Safari 4.0 - 8.0 */
-    animation: mymove 0.5s ease-in-out forwards;
+
+    -webkit-animation: mymoveTwo 8s ease-in-out  forwards; /* Safari 4.0 - 8.0 */
+    animation: mymoveTwo 8s ease-in-out forwards;
+    // animation-delay: 6s;
     position: absolute;
     // left: -40px;
+    // opacity: 0.1;
 }
 
 @keyframes mymove {
     0%   {left: -550px;}
     100% {left: 0px;}
 }
-
+@keyframes mymoveTwo {
+    0%   {left: -2200px;}
+    100% {left: 0px;}
+}
 .panel-back {
     // width: 540px;
     // height: 100vh;
@@ -121,6 +134,19 @@ h1 {
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
+.introText {
+  font-size: 36px;
+  padding-top: 20px;
+  text-align: right;
+  letter-spacing: 24px;
+}
+
+#textTwo {
+  text-align: left;
+  margin-top: 140px;
+  // top: 400px;
+  // text-align: right;
+}
 h2 {
   font-size: 18px;
   color: #DA7B93;
@@ -207,8 +233,48 @@ h3 {
 //   right: 94px;
 //   margin: 0 auto;
 // }
+.pulse {
+  margin:100px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cca92c;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 1.5s infinite;
+}
+.pulse:hover {
+  animation: none;
+}
 
-#submit-arrow {
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #DA7B93;
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px #DA7B93;
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 #DA7B93;
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #DA7B93;
+    box-shadow: 0 0 0 0 #DA7B93;
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 15px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 #DA7B93;
+      box-shadow: 0 0 0 0 #DA7B93;
+  }
+}
+
+#submitArrow {
   color: #DA7B93;
   font-size: 60px;
   position: absolute;
@@ -493,6 +559,9 @@ p {
 }
 
 @media only screen and (max-width: 1168px) {
+    #introBox {
+      left: 20px;
+    }
     .panel-three {
       width: 395px;
     }
@@ -512,7 +581,7 @@ p {
     #people-days {
       margin-right: 260px;
     }
-    #submit-arrow {
+    #submitArrow {
       right: 22px;
     }
     #smartCar {
@@ -554,7 +623,7 @@ p {
   form {
     margin-top: 100px;
   }
-  #submit-arrow {
+  #submitArrow {
     top: 254px;
     height: 150px;
     width: 97px;
@@ -583,7 +652,7 @@ p {
 }
 
 @-moz-document url-prefix() {
-  #submit-arrow {
+  #submitArrow {
       top: 362px;
       height: 172px;
   }
@@ -605,4 +674,8 @@ p {
   #largeCar {
       padding: 2px;
   }
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
