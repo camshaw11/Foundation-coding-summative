@@ -1,5 +1,5 @@
 
-var data = {
+var dataObj = {
 	motorbike: {
 		minPeople: 1,
 		maxPeople: 1,

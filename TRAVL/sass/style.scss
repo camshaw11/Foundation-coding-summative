@@ -309,7 +309,7 @@ h3 {
 #calculations {
   // width: 400px;
   margin-top: 3px;
-  height: 100px;
+  height: 135px;
   background-color: #DA7B93;
   margin-left: 93px;
   margin-right: 95px;
@@ -323,7 +323,7 @@ h3 {
   color: #1C3334;
 }
 
-#fuel-cost {
+#hire-cost {
   color: #DA7B93;
   background-color: #1C3334;
   padding-top: 5px;
@@ -340,6 +340,16 @@ h3 {
   padding-left: 20px;
   // margin-left: 20px;
   letter-spacing: 20px;
+  margin-bottom: 5px;
+}
+
+#distanceKm {
+  color: #DA7B93;
+  background-color: #1C3334;
+  padding-top: 5px;
+  padding-left: 20px;
+  // margin-left: 20px;
+  letter-spacing: 12px;
 }
 
 button:focus {

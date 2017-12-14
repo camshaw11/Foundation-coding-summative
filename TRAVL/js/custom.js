@@ -22,8 +22,9 @@ var init = function () {
 		var car3 				= document.getElementById("largeCar");
 		var car4 				= document.getElementById("motorhome");
 		//////////////////// cost calculating variables //////////////////////////////////
-		var fuelCost 			= document.getElementById('fuel-cost');
+		var hireCost 			= document.getElementById('hire-cost');
 		var overDistanceCost 	= document.getElementById('over-cost');
+		var distanceKm			= document.getElementById('distanceKm');
 		var submitArrow		 	= document.getElementById('submitArrow');
 		/////////////////// input form values ////////////////////////////////////////////
 		var myLocation 			= document.getElementById('input-space-from').value;
@@ -91,10 +92,10 @@ var init = function () {
 		});
 
 		map.addControl(directions, 'top-left');
-
+		// access object data and store the route in the object
     	var directionsData = directions.on('route', function(directions){
-
         	pricePerDay.directionsData = directions;
+        	console.log((pricePerDay.directionsData.route[0].distance / 1000).toFixed(0) + "KM");
     	});  
 
     	// append the origin and destination methods to my custom input fields
@@ -170,7 +171,7 @@ var init = function () {
 		function carChooser () {
 
 			event.preventDefault();
-			
+
 					// parse strings to values 
 					var peopleAmountInt = parseInt(peopleAmount.value);
 					var daysAmountInt 	= parseInt(daysAmount.value);
@@ -201,36 +202,41 @@ var init = function () {
 					} else {
 							noOptionContainer[0].style.display = "none";
 					}
-
+				// remove the pulse from the submit button after it has been clicked
 				$('#submitArrow').removeClass('pulse');
 
 				// function fires as soon as a checkbox has been checked
 				$(carSelect).change(function() {
 
 		    		if (carSelectMotor.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike[0];
+		        			hireCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorbike[0];
 		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorbike[1] / 100).toFixed(1) + "L";
+		        			distanceKm.textContent = "DISTANCE:" + " " + (pricePerDay.directionsData.route[0].distance / 1000).toFixed(0) + "KM";
 		        	} else if (carSelectSmall.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar[0];
+		        			hireCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.smallCar[0];
 		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.smallCar[1] / 100).toFixed(1) + "L";
+		        			distanceKm.textContent = "DISTANCE:" + " " + (pricePerDay.directionsData.route[0].distance / 1000).toFixed(0) + "KM";
 		        	} else if (carSelectLarge.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar[0];
+		        			hireCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.largeCar[0];
 		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.largeCar[1] / 100).toFixed(1) + "L";
+		        			distanceKm.textContent = "DISTANCE:" + " " + (pricePerDay.directionsData.route[0].distance / 1000).toFixed(0) + "KM";
 		        	} else if (carSelectMotorhome.checked == true) {
-		        			fuelCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome[0];
+		        			hireCost.textContent = "HIRE:" + " " + "$" + daysAmountInt * pricePerDay.motorhome[0];
 		        			overDistanceCost.textContent = "FUEL:" + " " + ((pricePerDay.directionsData.route[0].distance / 1000) * pricePerDay.motorhome[1] / 100).toFixed(1) + "L";
+		        			distanceKm.textContent = "DISTANCE:" + " " + (pricePerDay.directionsData.route[0].distance / 1000).toFixed(0) + "KM";
 		        	}
 		
 				});
 	 	}
-	 			// allows only one checkbox to be selected at a time
-				$('input[type="checkbox"]').on('change', function() {
-				   $('input[type="checkbox"]').not(this).prop('checked', false);
-				});
 
-				$('#add-days').click(function(){
-				    	$('#submitArrow').addClass('pulse');
-				});
+		// allows only one checkbox to be selected at a time
+		$('input[type="checkbox"]').on('change', function() {
+		  		$('input[type="checkbox"]').not(this).prop('checked', false);
+		});
+		// add pulsing border class to the submit button after days button has been clicked
+		$('#add-days').click(function(){
+		    	$('#submitArrow').addClass('pulse');
+		});
 
 		////////////  button increment and decrement  //////////////
 
@@ -277,6 +283,6 @@ var init = function () {
 
 	} // myForm function ends
 
-	myForm (); //invoke myForm
+	myForm (); // invoke myForm
 
-}(); //main function ends
+}(); // main function ends
