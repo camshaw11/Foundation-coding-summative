@@ -195,13 +195,16 @@ input:focus {
 }
 
 .set-width-people {
+  background-color: #1C3334;
   width: 40px;
-  padding-left: 10px;
+  padding-left: 12px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
-
+#input-space-from {
+  background-color: #1C3334;
+}
 #input-space-to {
   margin-bottom: 5px;
   width: 321px;
@@ -224,15 +227,6 @@ h3 {
     margin-right: 30px;
 }
 
-// #submit-data {
-//   // float: right;
-//   position: absolute;
-//   width: 55px;
-//   top: 372px;
-//   text-align: center;
-//   right: 94px;
-//   margin: 0 auto;
-// }
 .pulse {
   margin:100px;
   display: block;
@@ -625,7 +619,7 @@ p {
   }
   #submitArrow {
     top: 254px;
-    height: 150px;
+    height: 156px;
     width: 97px;
   }
   #largeCar, #motorbike, #motorhome, #smartCar {
@@ -648,6 +642,21 @@ p {
   }
   header {
     margin-left: 14px;
+  }
+  .set-width-people {
+    padding-bottom: 3px;
+    padding-left: 11px;
+    font-size: 25px;
+  }
+  #textTwo {
+    padding-left: 20px;
+    margin-top: 160px;
+  }
+  #textOne {
+    padding-right: 0px;
+  }
+  #introBox {
+    top: 101px;
   }
 }
 

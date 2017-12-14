@@ -85,7 +85,9 @@ var init = function () {
 			style: 'mapbox://styles/cammy11/cjalqspmrczga2smswy6q4kgx',
 			center: [174.763817,-41.295241],
 			zoom: 12,
-			minZoom: 5
+			minZoom: 5,
+		    pitch: 60 // pitch in degrees
+    		// bearing: -60, // bearing in degrees
 		});
 
 		map.addControl(directions, 'top-left');
@@ -168,7 +170,8 @@ var init = function () {
 		function carChooser () {
 
 			event.preventDefault();
-
+			
+					// parse strings to values 
 					var peopleAmountInt = parseInt(peopleAmount.value);
 					var daysAmountInt 	= parseInt(daysAmount.value);
 
